@@ -1,2 +1,3 @@
-class Dish < ActiveRecord::Base
+class Dish < ActiveRecord::
+	belongs_to :place
 end
