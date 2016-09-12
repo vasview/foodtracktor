@@ -12,12 +12,14 @@ ActiveAdmin.register User do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-permit_params :name, :email, :password, :password_confirmation, :admin
+permit_params :name, :email, :phone, :address, :password, :password_confirmation, :admin
 
 	form do |f|
 	  f.inputs do
 	  	f.input :name
 	  	f.input :email
+	  	f.input :phone
+	  	f.input :address
 	  	f.input :current_sign_in_at
 	  	f.input :last_sign_in_at
 	  	f.input :current_sign_in_ip
@@ -34,6 +36,7 @@ permit_params :name, :email, :password, :password_confirmation, :admin
 			link_to user.name, admin_user_path(user)
 		end
 		column :email
+		column :phone
 		column :current_sign_in_at
 		column :last_sign_it_at
 		column :current_sign_in_ip
@@ -47,6 +50,8 @@ permit_params :name, :email, :password, :password_confirmation, :admin
 	    attributes_table do
 			row :name
 			row :email
+			row :phone
+			row :address
 			row :created_at
 			row :updated_at
 			row :sign_in_count
