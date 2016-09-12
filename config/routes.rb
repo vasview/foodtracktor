@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'places#index'
 
-  resources :places
+  resources :places do
+    resources :carts
+  end
 
   ActiveAdmin.routes(self)
   devise_for :users

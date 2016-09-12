@@ -1,0 +1,20 @@
+<li>
+  <p>
+    <strong> #<%= @cart.id %> заказа: </strong>
+    <% for item in @cart.cart_items %>
+    	<%= item.dish.title %>
+    	<%= item.dish.price %>
+    	<%= item.number %>
+  </p>
+
+  <p>
+    <%= link_to 'Удалить блюдо', place_carts_path(@place.id), method: :delete, class: "cart-delete", remote: true %>
+  </p>
+  <% end %>
+</li>
+<li>
+	<strong> Сумма заказа: @cart_sum </strong>
+</li>
+<li>
+	<%= link_to "Удалить заказ", place_carts_path(@card), method: :delete %>
+</li>

@@ -1,6 +1,6 @@
 
 <div class="row">
-
+	<% @cart = Cart.new %>
 	<div class="col-md-10 col-sm-10">
 		<div class="place_details">
 			<div class="place_title"><%= @place.title %></div>
@@ -33,7 +33,8 @@
 							<div class="dish-bottom">
 								
 								<div class="dish-price"><%= dish.price %> сом</div>
-								<%= form_for @cart, remote: true do |f| %>	
+
+								<%= form_for @cart do |f| %>	
 									<div class="dish-quantity" id="dish-quantity">
 										<%= f.hidden_field :place_id, value: dish.place_id %>
 										<%= f.hidden_field :dish_id, value: dish.id %>
