@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912172603) do
+ActiveRecord::Schema.define(version: 20160912190359) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -31,12 +31,22 @@ ActiveRecord::Schema.define(version: 20160912172603) do
   create_table "cart_items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "cart_id"
+    t.integer  "dish_id"
   end
+
+  add_index "cart_items", ["cart_id"], name: "index_cart_items_on_cart_id"
+  add_index "cart_items", ["dish_id"], name: "index_cart_items_on_dish_id"
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "place_id"
   end
+
+  add_index "carts", ["place_id"], name: "index_carts_on_place_id"
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
 
   create_table "dishes", force: :cascade do |t|
     t.string   "title"
