@@ -33,6 +33,13 @@
               </ul>
             </li>
           </ul>
+
+          <% if current_user.admin? %>
+            <p class="navbar-text">
+              <%= link_to "Admin Panel", admin_root_path, class: "navbar-link" %>
+            </p>
+          <% end %>
+
         <% else %>
           <li><%= link_to new_user_registration_path do %> 
             <span class="glyphicon glyphicon-user"></span> Sign Up
