@@ -51,5 +51,7 @@ group :development do
   gem 'bootstrap-sass'
 
   gem 'paperclip'
+
+  gem 'faker'
 end
 

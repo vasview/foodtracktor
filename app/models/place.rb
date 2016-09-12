@@ -1,4 +1,5 @@
 class Place < ActiveRecord::Base
+	has_many :carts
 	has_many :dishes
 
 	has_attached_file :image,
