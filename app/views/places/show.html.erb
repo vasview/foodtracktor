@@ -33,7 +33,16 @@
 							<div class="dish-bottom">
 								
 								<div class="dish-price"><%= dish.price %> сом</div>
-								
+								<%= form_for @cart, remote: true do |f| %>	
+									<div class="dish-quantity" id="dish-quantity">
+										<%= f.hidden_field :place_id, value: dish.place_id %>
+										<%= f.hidden_field :dish_id, value: dish.id %>
+										<%= f.label :number_dishes, 'К-во' %>
+										<%= f.text_field :number_dishes, value: '1', style: 'width:30px;' %>
+									</div>
+									<div class="dish-order-btn"><%= f.submit 'Заказать', id: 'btn-order', class: "btn btn-primary" %>
+									</div>
+								<% end %>	
 							</div>	
 
 						</div>
