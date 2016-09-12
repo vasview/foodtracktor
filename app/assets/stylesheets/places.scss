@@ -1,3 +1,119 @@
 // Place all the styles related to the places controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.caffee {
+	width: 250px;
+	border: 2px solid green;
+	border-top-left-radius: 50px;
+	border-bottom-right-radius: 50px;
+	padding: 10px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.caffee a {
+	font-size: 18px;
+}
+
+.place_details {
+	width: 450px;
+	height: 200px;
+	border: 1px solid lightgreen;
+
+}
+
+.place_title {
+	position: relative;
+	width: 100%;
+	padding-left: 30%;
+	padding-top: 10px;
+	font-size: 20px;
+}
+
+.place_picture {
+	display: block;
+	position: relative;
+	float: left;
+	width: 40%;
+	padding-left: 20px;
+}
+
+.place_description {
+	display: block;
+	position: relative;
+	float: left;
+	width: 60%;
+	padding: 10px 10px 0px;
+}
+
+.dish {
+	width: 350px;
+	height: 300px;
+	border: 1px solid lightgreen;
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+	border-bottom-left-radius: 50px;
+	padding: 10px;
+	margin-bottom: 15px;
+}
+
+.dish-cell {
+	padding-top: 10px;
+	width: 328px;
+	height: 170px;
+}
+
+.dish-image {
+	display: block;
+	float: left;
+	width: 150px;
+	height: 150px;
+	padding-bottom: 20px;
+}
+.dish-description {
+	display: inline-block;
+	float: right;
+	height: 150px;
+	padding-bottom: 20px;
+	width: 178px;
+}
+
+.dish-title {
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom:10px;
+}
+
+.dish-divider {
+	height: 30px;
+	width: 100%;
+	border-bottom: 2px dotted green;
+}
+
+.dish-bottom {
+	height: 90px;
+	width: 100%;
+}
+
+.dish-price {
+	padding-top: 20px;
+	padding-left: 10px;
+	float: left;
+	height: 30px;
+	width: 40%;
+	font-size: 24px;
+}
+
+.dish-quantity {
+	padding-top: 20px;
+	padding-left: 10px;
+	float:left;
+	height: 30px;
+	width: 30%;
+}
+.dish-order-btn {
+	padding-top: 20px;
+	padding-left: 10px;
+	float: right;
+}

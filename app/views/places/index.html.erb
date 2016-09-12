@@ -1,1 +1,12 @@
-<h1> Here is all the places </h1>
+<h2>Все заведения</h2>
+
+<div class="row">
+	<% @places.each do |place| %>
+		<div class="col-md-3 col-sm-6">
+			<div class="caffee">
+				<p><%= image_tag place.image.url(:medium) %></p>
+				<p><%= link_to place.title, place_path(place.id) %></p>
+			</div>	
+		</div>
+	<% end %>
+</div>

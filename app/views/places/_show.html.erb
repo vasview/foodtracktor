@@ -1,0 +1,59 @@
+
+<div class="row">
+
+	<div class="col-md-10 col-sm-10">
+		<div class="place_details">
+			<div class="place_title"><%= @place.title %></div>
+			<div class="place_picture"><%= image_tag @place.image.url(:medium) %></div>
+			<div class="place_description"><%= @place.description %></div>
+		</div>	
+
+	  <% "Список блюд" %>
+		
+			<% @place.dishes.each do |dish| %>
+
+			
+					<div class="col-md-6 col-sm-6">
+						<div class="dish">
+							<div class="dish-cell">
+								<div class="dish-image"> <%= image_tag dish.image.url(:medium), class: "img-circle" %>
+								</div>
+
+								<div class="dish-description"> 
+									<div class="dish-title"><%= dish.title %></div>
+									<div class="dish-description-body"><%= dish.description %></div>
+								</div>
+							</div>
+
+							<div class="dish-divider"></div>
+
+							<div class="dish-bottom">
+								
+								<div class="dish-price"><%= dish.price %> сом</div>
+								<%= form_for @cart, remote: true do |f| %>	
+									<div class="dish-quantity" id="dish-quantity">
+										<%= f.hidden_field :place_id, value: dish.place_id %>
+										<%= f.hidden_field :dish_id, value: dish.id %>
+										<%= f.label :number_dishes, 'К-во' %>
+										<%= f.text_field :number_dishes, value: '1', style: 'width:30px;' %>
+									</div>
+									<div class="dish-order-btn"><%= f.submit 'Заказать', id: 'btn-order', class: "btn btn-primary" %>
+									</div>
+								<% end %>	
+							</div>	
+
+						</div>
+					</div>	
+				
+			<% end %>
+		</div>
+
+	<div class="col-md-2 col-sm-2 cart-col">
+		<div class="user_cart" id="user_cart"> Ваш заказ:
+			<section id="cart-section">
+			  <ol id="yourcart">
+			  </ol>
+			</section>
+		</div> 
+	</div>
+</div>
