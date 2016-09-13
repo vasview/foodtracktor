@@ -34,7 +34,7 @@
 								
 								<div class="dish-price"><%= dish.price %> сом</div>
 
-								<%= form_for @cart do |f| %>	
+								<%= form_for [@place, @cart] do |f| %>	
 									<div class="dish-quantity" id="dish-quantity">
 										<%= f.hidden_field :place_id, value: dish.place_id %>
 										<%= f.hidden_field :dish_id, value: dish.id %>
