@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'places#index'
 
   resources :places do
-    resources :carts
+    resources :carts do
+      resources :cart_items
+    end  
   end
 
   ActiveAdmin.routes(self)

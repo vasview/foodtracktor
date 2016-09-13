@@ -11,7 +11,8 @@ User.create(name: 'admin', phone: '555 101010', address: 'Bishkek, Chui 23', ema
 11.times do
 	u = User.new
 	u.fullname = Faker::Name.name
-	u.nickname = Faker::Name.first_name
+	u.phone = Faker::PhoneNumber.cell_phone
+	u.nickname = Faker::Address.city
 	u.email = Faker::Internet.email
 	u.password = '123456'
 	u.password_confirmation = '123456'
@@ -29,24 +30,23 @@ users = User.all
 fixtures_path = Rails.root.join('app', 'assets', 'images', 'fixtures')
 
 
-imgs = ['balloons.jpg', "detsvo.jpg", "events_1.jpg", "lady_bird.jpg", "sunrise.jpg"]
+pl_imgs = ['traveller_coffee.png', "bukhara.png"]
+dish_imgs = ["traveller_latter_singapour.png", "bukhara_salad_cesar.png"]
 
-11.times do
-	f = Photo.new
+6.times do
+	f = Place.new
 	f.title = Faker::Lorem.characters(20)
 	f.description = Faker::Lorem.sentence
-	f.user_id = users.find(rand(1..11)).id
-	f.likes_count = '0'
-	f.image = File.new(fixtures_path.join(imgs.sample))
+	f.image = File.new(fixtures_path.join(pl_imgs.sample))
 	f.save
 end
 
-photos = Photo.all
+places = Place.all
 
-for photo in photos 
-	photo.comments.create(body: Faker::Lorem.sentence, user_id: users.find(rand(1..11)).id)
+for place in places 
+	
 	rand(1..5).times do
-		photo.likes.create(photo_id: photo.id, user_id: users.find(rand(1..11)).id)
+		place.dishes.create(title: Faker::Lorem.characters(20), description: Faker::Lorem.sentence, price: rand(100..1000)
 	end
 end
 
